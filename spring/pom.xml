@@ -11,6 +11,8 @@
     <modules>
         <module>spring-core</module>
         <module>spring-web</module>
+        <module>spring-transaction</module>
+        <module>spring-newsdk</module>
     </modules>
 
 
@@ -19,7 +21,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

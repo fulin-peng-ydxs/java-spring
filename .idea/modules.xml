@@ -5,7 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/java-spring.iml" filepath="$PROJECT_DIR$/.idea/java-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring.iml" filepath="$PROJECT_DIR$/spring/spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring-core/spring-core.iml" filepath="$PROJECT_DIR$/spring/spring-core/spring-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/spring-newsdk/spring-newsdk.iml" filepath="$PROJECT_DIR$/spring/spring-newsdk/spring-newsdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/spring-transaction/spring-transaction.iml" filepath="$PROJECT_DIR$/spring/spring-transaction/spring-transaction.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring-web/spring-web.iml" filepath="$PROJECT_DIR$/spring/spring-web/spring-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/spring-web/spring-webflux/spring-webflux.iml" filepath="$PROJECT_DIR$/spring/spring-web/spring-webflux/spring-webflux.iml" />
     </modules>
   </component>
 </project>
