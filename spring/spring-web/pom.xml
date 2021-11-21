@@ -12,7 +12,8 @@
     <artifactId>spring-web</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-webflux</module>
+        <module>spring-webFlux</module>
+        <module>spring-webMVC</module>
     </modules>
 
 

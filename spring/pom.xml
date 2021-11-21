@@ -14,12 +14,15 @@
         <module>spring-transaction</module>
         <module>spring-newsdk</module>
     </modules>
+    <properties>
+        <spring.version>5.0.2.RELEASE</spring.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.3.11</version>
+            <version>${spring.version}</version>
         </dependency>
         <!--测试依赖-->
         <dependency>
