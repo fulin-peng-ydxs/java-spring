@@ -6,7 +6,7 @@ package mvc.annotation;
  * @description: SpringMvc注解配置原理
  * @date 2021/11/21 21:40
  */
-public class ServletContainerInitializerResolve {
+    public class ServletContainerInitializerResolve {
 /**
  * 1> 基于Servlet3.0新特性：
  * web容器在启动的时候，会扫描每个jar包下的加载这个文件指定的类SpringServletContainerInitializer
@@ -76,10 +76,4 @@ public class ServletContainerInitializerResolve {
 //        }
 //    }
 //}
-
-
-
-
-
-
 }

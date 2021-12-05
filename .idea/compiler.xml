@@ -8,12 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-transaction" />
         <module name="spring-newsdk" />
+        <module name="source_demo" />
         <module name="spring-core" />
         <module name="spring-webFlux" />
-        <module name="spring-webMVC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="source_demo" target="1.8" />
       <module name="spring" target="1.8" />
       <module name="spring-core" target="1.8" />
       <module name="spring-newsdk" target="1.8" />

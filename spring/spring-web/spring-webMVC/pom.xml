@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-webMVC</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>source_demo</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
