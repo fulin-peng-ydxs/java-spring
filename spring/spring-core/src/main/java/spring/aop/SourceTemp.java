@@ -1,6 +1,5 @@
 package spring.aop;
 
-
 /**
  * @author PengFuLin
  * @version 1.0
@@ -9,6 +8,10 @@ package spring.aop;
  */
 public class SourceTemp {
 
+    public static void main(String[] args) {
+        System.out.println("91440101190478645G3442015105000".substring(2,8));
+        System.out.println("4401000000".substring(0,6));
+    }
     /**
      * 给配置类中加 @EnableAspectJAutoProxy 【开启基于注解的aop模式】
      * 		在Spring中很多的 @EnableXXX;

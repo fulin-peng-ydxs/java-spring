@@ -1,5 +1,6 @@
 package controller;
 
+import model.Starts;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class Demo {
 
-
-
     @RequestMapping(value = "/requestBodyTest",method = RequestMethod.POST)
-    public @ResponseBody String requestBodyTest(@RequestBody  String requestBodyParams){
+    public @ResponseBody Starts requestBodyTest(@RequestBody  String requestBodyParams){
         System.out.println("fafa");
-        return "index";
+        return new Starts();
     }
 
     @RequestMapping(value = "/demo",method = RequestMethod.POST)
