@@ -1,5 +1,4 @@
 .idea/**
-
-/spring/**/target
-
-/spring/**/*.iml
+/**/target
+/**/*.iml
+/**/.idea
