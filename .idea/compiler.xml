@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-webflux" />
         <module name="spring-transaction" />
         <module name="spring-newsdk" />
         <module name="source_demo" />
@@ -14,15 +15,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="source_demo" target="1.8" />
-      <module name="spring" target="1.8" />
-      <module name="spring-core" target="1.8" />
-      <module name="spring-newsdk" target="1.8" />
-      <module name="spring-transaction" target="1.8" />
-      <module name="spring-web" target="1.8" />
+      <module name="source_demo" target="8" />
+      <module name="spring" target="1.5" />
+      <module name="spring-core" target="1.5" />
+      <module name="spring-newsdk" target="1.5" />
+      <module name="spring-transaction" target="1.5" />
+      <module name="spring-web" target="1.5" />
+      <module name="spring-webflux" target="1.5" />
       <module name="spring-webFlux" target="1.8" />
       <module name="spring-webMvc" target="1.8" />
-      <module name="spring-webMVC" target="1.8" />
+      <module name="spring-webMVC" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

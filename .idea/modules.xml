@@ -9,8 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/spring/spring-newsdk/spring-newsdk.iml" filepath="$PROJECT_DIR$/spring/spring-newsdk/spring-newsdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring-transaction/spring-transaction.iml" filepath="$PROJECT_DIR$/spring/spring-transaction/spring-transaction.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring-web/spring-web.iml" filepath="$PROJECT_DIR$/spring/spring-web/spring-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring/spring-web/spring-webflux/spring-webFlux.iml" filepath="$PROJECT_DIR$/spring/spring-web/spring-webflux/spring-webFlux.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring-web/spring-webMVC/spring-webMVC.iml" filepath="$PROJECT_DIR$/spring/spring-web/spring-webMVC/spring-webMVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/spring-web/spring-webFlux/spring-webflux.iml" filepath="$PROJECT_DIR$/spring/spring-web/spring-webFlux/spring-webflux.iml" />
     </modules>
   </component>
 </project>
