@@ -2,17 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>java-spring</groupId>
+    <groupId>S1897.java.spring</groupId>
     <artifactId>spring</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
     <modules>
-        <module>spring-core</module>
+        <module>Spring-Core</module>
         <module>spring-web</module>
-        <module>spring-transaction</module>
-        <module>spring-newsdk</module>
+        <module>Spring-Transaction</module>
+        <module>Spring-NewSDK</module>
+        <module>Spring-Integration</module>
     </modules>
     <properties>
         <spring.version>5.0.2.RELEASE</spring.version>

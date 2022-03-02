@@ -9,8 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-webMVC</artifactId>
+    <artifactId>spring-webmvc</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>source_demo</module>
     </modules>
@@ -21,6 +22,8 @@
     </properties>
 
     <dependencies>
+
+        <!--spring mvc相关依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
