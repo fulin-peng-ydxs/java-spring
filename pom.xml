@@ -10,11 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules>
-        <module>Spring-Core</module>
+        <module>spring-core</module>
         <module>spring-web</module>
-        <module>Spring-Transaction</module>
-        <module>Spring-NewSDK</module>
-        <module>Spring-Integration</module>
+        <module>spring-transaction</module>
+        <module>spring-newsdk</module>
+        <module>spring-integration</module>
     </modules>
     <properties>
         <spring.version>5.0.2.RELEASE</spring.version>
