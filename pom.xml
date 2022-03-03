@@ -21,11 +21,21 @@
     </properties>
 
     <dependencies>
+
+        <!--spring上下文-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+        <!--spring jdbc-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <!--测试依赖-->
         <dependency>
             <groupId>junit</groupId>
@@ -34,5 +44,4 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
 </project>
