@@ -1,4 +1,4 @@
-package mvc.async;
+package async;
 
 import org.springframework.web.context.request.async.DeferredResult;
 

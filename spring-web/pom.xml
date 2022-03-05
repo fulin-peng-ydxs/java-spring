@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-webmvc</module>
+        <module>spring-webflux</module>
     </modules>
 
 

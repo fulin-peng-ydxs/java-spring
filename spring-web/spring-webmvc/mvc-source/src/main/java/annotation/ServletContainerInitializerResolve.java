@@ -1,4 +1,4 @@
-package mvc.annotation;
+package annotation;
 
 /**
  * @author PengFuLin
