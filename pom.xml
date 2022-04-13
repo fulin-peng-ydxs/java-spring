@@ -16,14 +16,14 @@
         <module>spring-integration</module>
         <module>spring-data</module>
         <module>spring-test</module>
-    </modules>
+        <module>spring-amqp</module>
+        </modules>
 
-    <properties>
+    E<properties>
         <spring.version>5.3.17</spring.version>
     </properties>
 
     <dependencies>
-
         <!--spring上下文-->
         <dependency>
             <groupId>org.springframework</groupId>
