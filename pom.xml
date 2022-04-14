@@ -17,9 +17,12 @@
         <module>spring-data</module>
         <module>spring-test</module>
         <module>spring-amqp</module>
-        </modules>
+        <module>spring-schedule</module>
+        <module>spring-cache</module>
+        <module>spring-email</module>
+    </modules>
 
-    E<properties>
+    <properties>
         <spring.version>5.3.17</spring.version>
     </properties>
 
@@ -35,6 +38,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--spring上下文扩展支持：如email-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
