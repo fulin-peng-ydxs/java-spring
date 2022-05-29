@@ -10,7 +10,7 @@
     </parent>
     <artifactId>spring-transaction</artifactId>
     <dependencies>
-        <!--spring transaction-->
+        <!--spring事务-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
