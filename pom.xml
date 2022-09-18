@@ -12,7 +12,6 @@
         <module>spring-core</module>
         <module>spring-web</module>
         <module>spring-transaction</module>
-        <module>spring-newsdk</module>
         <module>spring-integration</module>
         <module>spring-data</module>
         <module>spring-test</module>
