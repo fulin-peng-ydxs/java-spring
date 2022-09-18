@@ -24,7 +24,7 @@ public class Demo {
     }
 
     @RequestMapping(value = "/demo",method = RequestMethod.POST)
-    public  String demo(  String demo){
+    public  String demo( String demo){
         System.out.println("fafa");
         return "index";
     }
