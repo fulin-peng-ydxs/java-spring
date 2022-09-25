@@ -19,6 +19,7 @@
         <module>spring-schedule</module>
         <module>spring-cache</module>
         <module>spring-email</module>
+        <module>spring-swagger</module>
     </modules>
 
     <properties>
