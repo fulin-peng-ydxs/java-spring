@@ -15,8 +15,8 @@ import java.util.Map;
 public class ApplicationContextMybatis {
 
     public static void main(String[] args) {
-//        ApplicationContext context =getAnnotationApplicationContext();
-        ApplicationContext context =getFileConfigApplicationContext();
+//        ApplicationContext context =getAnnotationApplicationContext();  //注解配置方式
+        ApplicationContext context =getFileConfigApplicationContext(); //容器配置方式
         demoMapper(context);
         demoTemplate(context);
     }
