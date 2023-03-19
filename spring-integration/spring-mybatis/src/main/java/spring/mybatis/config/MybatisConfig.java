@@ -45,6 +45,8 @@ public class MybatisConfig {
         bean.setDataSource(dataSource); //设置数据源
         bean.setTypeAliasesPackage("spring.mybatis.bean"); //设置类型别名
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/*.xml"));  //设置mapper映射文件位置
+        //设置插件
+//        bean.setPlugins();
         return bean.getObject();
     }
 

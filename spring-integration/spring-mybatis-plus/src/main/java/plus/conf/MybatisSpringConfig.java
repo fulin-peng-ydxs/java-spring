@@ -4,6 +4,7 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
@@ -86,6 +87,9 @@ public class MybatisSpringConfig {
         //乐观锁插件
         OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor = new OptimisticLockerInnerInterceptor();
         mybatisPlusInterceptor.addInnerInterceptor(optimisticLockerInnerInterceptor);
+        //全表更新插件
+        BlockAttackInnerInterceptor blockAttackInnerInterceptor = new BlockAttackInnerInterceptor();
+        mybatisPlusInterceptor.addInnerInterceptor(blockAttackInnerInterceptor);
         return mybatisPlusInterceptor;
     }
 
