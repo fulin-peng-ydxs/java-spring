@@ -13,6 +13,5 @@
     <modules>
         <module>spring-mybatis</module>
         <module>spring-mybatis-plus</module>
-        <module>spring-mybatis-plus-dynamic</module>
     </modules>
 </project>
