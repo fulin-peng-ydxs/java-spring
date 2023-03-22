@@ -1,5 +1,6 @@
 package spring.mybatis.context;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -15,10 +16,11 @@ import java.util.Map;
 public class ApplicationContextMybatis {
 
     public static void main(String[] args) {
-//        ApplicationContext context =getAnnotationApplicationContext();  //注解配置方式
-        ApplicationContext context =getFileConfigApplicationContext(); //容器配置方式
+        ApplicationContext context =getAnnotationApplicationContext();  //注解配置方式
+//        ApplicationContext context =getFileConfigApplicationContext(); //容器配置方式
         demoMapper(context);
         demoTemplate(context);
+        demoPagePlug(context);
     }
 
     /*获取注解容器*/
@@ -54,5 +56,15 @@ public class ApplicationContextMybatis {
         List<Map<?, ?>> userMapper = userDao.findUserMapper();
         System.out.println(user.toString()+userMapper.toString());
         System.out.println("template结束");
+    }
+
+    //自定义分页插件使用
+    private static void demoPagePlug(ApplicationContext context){
+        //设置了分页插件，所以会分页
+        SqlSessionTemplate db1SqlSessionTemplate = context.getBean("db1SqlSessionTemplate", SqlSessionTemplate.class);
+        db1SqlSessionTemplate.selectList("findUserMapper",null,new RowBounds(0,20));
+        //没有设置插件，所以不会分页
+        SqlSessionTemplate db2SqlSessionTemplate = context.getBean("db2SqlSessionTemplate", SqlSessionTemplate.class);
+        db2SqlSessionTemplate.selectList("findDb",null,new RowBounds(0,20));
     }
 }

@@ -5,11 +5,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import spring.mybatis.plugs.page.OffsetLimitInterceptor;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -19,10 +22,14 @@ import java.util.Properties;
  * 2023/2/25 0:12
  */
 @Configuration
+@ComponentScan("spring.mybatis")
 /*配置映射器包路径，使映射器放入spring容器中管理，可以明确指定映射器的会话的工厂，如在多数据源的场景下* */
 @MapperScan(basePackages = "spring.mybatis.dao.dao1", sqlSessionFactoryRef = "db1SqlSessionFactory")
 @MapperScan(basePackages = "spring.mybatis.dao.dao2", sqlSessionFactoryRef = "db2SqlSessionFactory")
 public class MybatisConfig {
+
+    @Autowired
+    private OffsetLimitInterceptor offsetLimitInterceptor;
 
     /*=====第一个数据源*/
 
@@ -46,7 +53,7 @@ public class MybatisConfig {
         bean.setTypeAliasesPackage("spring.mybatis.bean"); //设置类型别名
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/*.xml"));  //设置mapper映射文件位置
         //设置插件
-//        bean.setPlugins();
+        bean.setPlugins(offsetLimitInterceptor);
         return bean.getObject();
     }
 
