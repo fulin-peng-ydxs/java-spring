@@ -51,7 +51,7 @@ public class JpaConfig {
         properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL57Dialect");
         properties.setProperty("hibernate.hbm2ddl.auto","update");
         properties.setProperty("hibernate.format_sql","true");
-        properties.setProperty("hibernate.hibernate.show_sql","true");
+        properties.setProperty("hibernate.show_sql","true");
         localContainerEntityManagerFactoryBean.setJpaProperties(properties);
         return localContainerEntityManagerFactoryBean;
     }
