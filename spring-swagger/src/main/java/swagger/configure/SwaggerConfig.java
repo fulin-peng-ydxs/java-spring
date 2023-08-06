@@ -16,7 +16,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .pathMapping("/")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("swagger.controller"))
+                .apis(RequestHandlerSelectors.basePackage("swagger.web.mvc.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
