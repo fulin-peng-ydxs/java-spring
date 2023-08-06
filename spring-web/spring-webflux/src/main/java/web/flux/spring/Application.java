@@ -1,8 +1,8 @@
-package web.flux.container;
+package web.flux.spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import reactor.netty.http.server.HttpServer;
-import web.flux.container.config.WebFluxConfig;
+import web.flux.spring.config.WebFluxConfig;
 
 public class Application {
 

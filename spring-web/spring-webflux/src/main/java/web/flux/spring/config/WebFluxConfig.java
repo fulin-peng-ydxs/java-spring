@@ -1,4 +1,4 @@
-package web.flux.container.config;
+package web.flux.spring.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
