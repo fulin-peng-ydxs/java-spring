@@ -27,7 +27,7 @@
     </properties>
 
     <dependencies>
-        <!--spring上下文-->
+        <!--spring上下文：包括bean、aop、core等spring核心内容包-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
