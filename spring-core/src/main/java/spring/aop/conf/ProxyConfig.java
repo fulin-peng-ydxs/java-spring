@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect //声明切面
 @Component
-public class UserProxy {
+public class ProxyConfig {
 
     //配置公共切入点
     @Pointcut("execution(* spring.aop.user.*.*(..))")
@@ -18,5 +18,11 @@ public class UserProxy {
     public void userTest(){
         System.out.println("通知代理........");
     }
+
+    @Before(value = "@within(spring.aop.annotation.ProxyTarget)")
+    public void withinTest(){
+        System.out.println("within代理通知........");
+    }
+
 }
 
