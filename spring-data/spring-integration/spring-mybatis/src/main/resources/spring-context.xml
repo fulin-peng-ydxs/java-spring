@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+    <!--数据源-->
+    <bean id="db1dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mysql"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <!--事务管理器-->
+    <bean id="db1TransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="db1dataSource"/>
+    </bean>
+
+    <!--sqlSession工厂-->
+    <bean id="db1SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="db1dataSource"/>
+        <property name="typeAliasesPackage" value="mybatis.bean"/>
+        <property name="mapperLocations" value="classpath:/mapper/UserDao.xml"/>
+    </bean>
+
+    <!--sqlSession模板-->
+    <bean id="db1SqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="db1SqlSessionFactory"/>
+    </bean>
+
+    <!--mapper映射器的包扫描-->
+    <mybatis:scan base-package="mybatis.dao.dao1" factory-ref="db1SqlSessionFactory"/>
+</beans>

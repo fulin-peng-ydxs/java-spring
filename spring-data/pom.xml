@@ -15,6 +15,7 @@
         <module>data-source</module>
         <module>data-jpa</module>
         <module>data-jdbc</module>
+        <module>spring-integration</module>
     </modules>
 
 <!--    <dependencyManagement>-->
