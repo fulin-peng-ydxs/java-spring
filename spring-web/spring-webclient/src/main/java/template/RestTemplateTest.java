@@ -1,8 +1,9 @@
-package spring.web.client.template;
+package template;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import template.conf.RestTemplateConf;
 
 public class RestTemplateTest {
 

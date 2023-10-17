@@ -1,4 +1,4 @@
-package spring.web.client.template;
+package template.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
