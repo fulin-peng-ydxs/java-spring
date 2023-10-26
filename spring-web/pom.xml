@@ -18,7 +18,6 @@
     <modules>
         <module>spring-webmvc</module>
         <module>spring-webflux</module>
-        <module>spring-websocket</module>
         <module>spring-webclient</module>
     </modules>
 
