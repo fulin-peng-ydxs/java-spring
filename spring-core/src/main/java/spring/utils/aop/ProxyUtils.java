@@ -1,4 +1,4 @@
-package spring.utils.custom;
+package spring.utils.aop;
 
 import org.springframework.aop.framework.AdvisedSupport;
 import org.springframework.aop.framework.AopProxy;
