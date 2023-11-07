@@ -22,7 +22,7 @@ public interface CacheService {
      */
     default void initCache(){}
 
-    /**定时任务表达式
+    /**定时任务表达式：让缓存可自行更新
      * <p>使用cron表达式定义，为空不加入</p>
      * 2023/6/1 0001-18:43
      * @author pengfulin
