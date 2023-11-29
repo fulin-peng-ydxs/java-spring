@@ -82,7 +82,6 @@
         </dependency>
 
         <!--json依赖-->
-        <!--jackson-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>

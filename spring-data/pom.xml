@@ -14,8 +14,8 @@
         <module>data-redis</module>
         <module>data-source</module>
         <module>data-jpa</module>
-        <module>data-jdbc</module>
         <module>spring-integration</module>
+        <module>data-elasticsearch</module>
     </modules>
 
 <!--    <dependencyManagement>-->
