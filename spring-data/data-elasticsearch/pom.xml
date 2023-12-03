@@ -12,6 +12,7 @@
 
     <properties>
         <elasticsearch.version>4.2.12</elasticsearch.version>
+<!--        <elasticsearch.version>5.2.0</elasticsearch.version>-->
     </properties>
 
     <dependencies>
