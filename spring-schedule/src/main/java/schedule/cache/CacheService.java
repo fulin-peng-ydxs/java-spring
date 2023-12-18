@@ -13,7 +13,7 @@ public interface CacheService {
      * 2023/6/1 0001-18:31
      * @author pengfulin
      */
-    void updateCache();
+    default void updateCache(){};
 
 
     /**初始化缓存
