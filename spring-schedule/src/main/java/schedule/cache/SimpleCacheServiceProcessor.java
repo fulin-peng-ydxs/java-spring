@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
-import schedule.utils.TaskScheduleManager;
+import schedule.service.TaskScheduleManager;
 import java.util.LinkedList;
 import java.util.List;
 
