@@ -13,7 +13,6 @@
         <module>spring-web</module>
         <module>spring-transaction</module>
         <module>spring-data</module>
-        <module>spring-test</module>
         <module>spring-amqp</module>
         <module>spring-schedule</module>
         <module>spring-cache</module>
