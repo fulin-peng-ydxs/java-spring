@@ -64,7 +64,8 @@ public class RestTemplateCallUtil {
             HttpEntity<?> entity = new HttpEntity<>(httpHeaders);
             log.debug("HttpRestTemplate服务调用-GET请求：url：{}/params：{}",url,params);
             if(params!=null){   //有参数调用
-                boolean pathVariables = url.matches(".*\\{.+\\}.*");  //url是否包含可变参数
+                //TODO 不单是Get可处理，且建议使用web自带工具类
+                boolean pathVariables = url.matches(".*\\{.+}.*");  //url是否包含可变参数
                 if(pathVariables){  //可变参数处理：参数名与路径参数名匹配
                     responseEntity=restTemplate.exchange(url,method,entity,responseType,params);
                 }else{ //固定参数处理：url编码
