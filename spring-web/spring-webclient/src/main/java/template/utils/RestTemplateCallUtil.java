@@ -69,9 +69,14 @@ public class RestTemplateCallUtil {
                 if(pathVariables){  //可变参数处理：参数名与路径参数名匹配
                     responseEntity=restTemplate.exchange(url,method,entity,responseType,params);
                 }else{ //固定参数处理：url编码
-                    UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url);
-                    params.forEach(builder::queryParam);
-                    url = builder.encode().toUriString();
+                    StringBuilder urlBuilder=new StringBuilder(url);
+                    if (url.lastIndexOf("?")<0) {
+                        urlBuilder.append("?");
+                    }
+                    params.forEach((key,value)->{
+                        urlBuilder.append(key).append("=").append(value).append("&");
+                    });
+                    url=urlBuilder.substring(0,urlBuilder.length()-1);
                     responseEntity=restTemplate.exchange(url,method,entity,responseType);
                 }
             }else{  //无参数调用
