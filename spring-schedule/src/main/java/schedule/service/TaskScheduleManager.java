@@ -3,6 +3,7 @@ package schedule.service;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.scheduling.TaskScheduler;
@@ -21,16 +22,27 @@ import java.util.concurrent.ScheduledFuture;
 @Getter
 @Slf4j
 @Service
-public class TaskScheduleManager implements ApplicationListener<ContextRefreshedEvent> {
+public class TaskScheduleManager implements ApplicationListener<ContextRefreshedEvent>, ApplicationContextAware {
 
     //任务调度器
     private  TaskScheduler taskScheduler;
 
+    //应用容器
+    private ApplicationContext applicationContext;
+
     //调度任务集合：任务名称为唯一标识
     private final Map<String, ScheduledFuture<?>> scheduledFutureMap=new HashMap<>();
 
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
+        //防止存在多个容器触发容器刷新事件
+        //（因scheduledAnnotationBeanPostProcessor内部初始化taskScheduler时applicationContext做了判断机制）
+        if (event.getApplicationContext() != this.applicationContext)
+            return;
         try {
             ApplicationContext applicationContext = event.getApplicationContext();
             ScheduledAnnotationBeanPostProcessor scheduledAnnotationBeanPostProcessor = applicationContext.getBean(ScheduledAnnotationBeanPostProcessor.class);
