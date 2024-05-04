@@ -16,6 +16,7 @@
         <module>data-jpa</module>
         <module>spring-integration</module>
         <module>data-elasticsearch</module>
+        <module>data-mongodb</module>
     </modules>
 
 <!--    <dependencyManagement>-->
