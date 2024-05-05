@@ -1,5 +1,7 @@
 package mybatis.plugs.page;
 
+import mybatis.plugs.page.dialect.IDialect;
+import mybatis.plugs.page.dialect.IDialectManager;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -14,11 +16,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import mybatis.plugs.page.dialect.IDialect;
-import mybatis.plugs.page.dialect.IDialectManager;
 
-import java.util.Properties;
-
+/**
+ * 分页插件
+ * 2024/5/5 01:07
+ * @author pengshuaifeng
+ */
 @Component
 @Intercepts({@Signature(
 		type = Executor.class,
@@ -26,12 +29,14 @@ import java.util.Properties;
 		args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}
 )})
 public class OffsetLimitInterceptor implements Interceptor {
-	private static Logger logger = LoggerFactory.getLogger(OffsetLimitInterceptor.class);
-	static int MAPPED_STATEMENT_INDEX = 0;
-	static int PARAMETER_INDEX = 1;
-	static int ROWBOUNDS_INDEX = 2;
-	static int RESULT_HANDLER_INDEX = 3;
+
+	private static final Logger logger = LoggerFactory.getLogger(OffsetLimitInterceptor.class);
+	static int MAPPED_STATEMENT_INDEX = 0; //声明对象索引
+	static int PARAMETER_INDEX = 1;  //参数对象索引
+	static int ROW_BOUNDS_INDEX = 2; //分页对象索引
+	static int RESULT_HANDLER_INDEX = 3;  //结果对象索引
 	private IDialectManager dialectManager;
+
 	@Value("${mybatis.dialect:mysql}")
 	private String dialect;
 
@@ -51,15 +56,33 @@ public class OffsetLimitInterceptor implements Interceptor {
 		this.dialect = dialect;
 	}
 
-	public Object intercept(Invocation invocation) throws Throwable {
-		this.processIntercept(invocation.getArgs());
-		return invocation.proceed();
+
+
+	/**
+	 * 拦截条件判断
+	 * 2024/5/5 15:18
+	 * @author pengshuaifeng
+	 */
+	public Object plugin(Object target) {
+		return target instanceof Executor ? Plugin.wrap(target, this) : target;
 	}
+
+
+	/**
+	 * 拦截方法
+	 * 2024/5/5 15:16
+	 * @author pengshuaifeng
+	 */
+	public Object intercept(Invocation invocation) throws Throwable {
+		this.processIntercept(invocation.getArgs());  //分页逻辑处理
+		return invocation.proceed();  //执行原方法
+	}
+
 
 	void processIntercept(Object[] queryArgs) {
 		MappedStatement ms = (MappedStatement)queryArgs[MAPPED_STATEMENT_INDEX];
 		Object parameter = queryArgs[PARAMETER_INDEX];
-		RowBounds rowBounds = (RowBounds)queryArgs[ROWBOUNDS_INDEX];
+		RowBounds rowBounds = (RowBounds)queryArgs[ROW_BOUNDS_INDEX];
 		int offset = rowBounds.getOffset();
 		int limit = rowBounds.getLimit();
 		IDialect dialectClass = this.dialectManager.getDialect(this.dialect);
@@ -74,7 +97,7 @@ public class OffsetLimitInterceptor implements Interceptor {
 			}
 
 			limit = 2147483647;
-			queryArgs[ROWBOUNDS_INDEX] = new RowBounds(offset, limit);
+			queryArgs[ROW_BOUNDS_INDEX] = new RowBounds(offset, limit);
 			Configuration con = new Configuration();
 			BoundSql newBoundSql = new BoundSql(con, sql, boundSql.getParameterMappings(), boundSql.getParameterObject());
 			if (boundSql.getParameterMappings() != null) {
@@ -118,12 +141,6 @@ public class OffsetLimitInterceptor implements Interceptor {
 		return newMs;
 	}
 
-	public Object plugin(Object target) {
-		return target instanceof Executor ? Plugin.wrap(target, this) : target;
-	}
-
-	public void setProperties(Properties properties) {
-	}
 
 	public static class BoundSqlSqlSource implements SqlSource {
 		BoundSql boundSql;
