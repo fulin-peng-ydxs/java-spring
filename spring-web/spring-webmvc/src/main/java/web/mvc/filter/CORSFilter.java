@@ -20,21 +20,19 @@ public class CORSFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
-        
-        //全部放开
-        response.setHeader("Access-Control-Allow-Origin", "*"); //允许所有域名
-        response.setHeader("Access-Control-Allow-Methods", "*"); //允许所有请求头
-        response.setHeader("Access-Control-Max-Age", "3600"); //设置预检请求结果的缓存时间，以减少预检请求的数量。
-        response.setHeader("Access-Control-Allow-Headers", "*"); // 允许所有请求头
-        response.setHeader("Access-Control-Allow-Credentials", "true");  //允许携带认证信息（cookie信息）
-
-        //安全做法
+        //安全做法:手动指定允许的请求
         response.setHeader("Access-Control-Allow-Origin", "http://example-client.com"); // 指定允许的域名
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE"); // 允许的HTTP方法
         response.setHeader("Access-Control-Max-Age", "3600"); // 缓存预检请求的时间
         response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization"); // 指定允许的请求头
-        response.setHeader("Access-Control-Allow-Credentials", "true"); // 允许凭证
+        response.setHeader("Access-Control-Allow-Credentials", "true"); // 允许凭证：按需指定
 
+        //调试做法：直接允许请求端发来的请求
+        response.setHeader("Access-Control-Allow-Origin", ((HttpServletRequest) req).getHeader("origin")); // 允许访问的域名
+        response.setHeader("Access-Control-Allow-Methods", ((HttpServletRequest) req).getHeader("Access-Control-Allow-Methods")); // 允许访问的HTTP方法
+        response.setHeader("Access-Control-Max-Age", "3600"); // 缓存预检请求的时间
+        response.setHeader("Access-Control-Allow-Headers",  ((HttpServletRequest) req).getHeader("Access-Control-Request-Headers")); // 指定访问允许的请求头
+        response.setHeader("Access-Control-Allow-Credentials", "true"); // 允许凭证：按需指定
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {  //预请求方法，则直接返回结果
             response.setStatus(HttpServletResponse.SC_OK);
         } else {

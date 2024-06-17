@@ -22,7 +22,7 @@ public class CorsMappingConfig {
                         .allowedOrigins("http://example.com")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(true); //按需指定
             }
         };
     }
