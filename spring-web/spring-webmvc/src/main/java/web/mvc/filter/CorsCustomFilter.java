@@ -51,3 +51,4 @@ public class CorsCustomFilter implements Filter {
     @Override
     public void destroy() {}
 }
+
