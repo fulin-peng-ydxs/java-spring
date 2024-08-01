@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-amqp" />
+        <module name="spring-webflux" />
+        <module name="data-elasticsearch" />
+        <module name="springfox3" />
+        <module name="mvc-source" />
+        <module name="springfox2" />
+        <module name="reactor" />
+        <module name="data-jpa" />
+        <module name="data-mongodb" />
+        <module name="spring-email" />
+        <module name="spring-cache" />
+        <module name="spring-mybatis" />
+        <module name="spring-transaction" />
+        <module name="spring-core" />
+        <module name="spring-webmvc" />
+        <module name="data-source" />
+        <module name="spring-schedule" />
+        <module name="spring-webclient" />
+        <module name="data-redis" />
+        <module name="spring-mybatis-plus" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="data-jdbc" target="1.8" />
+      <module name="flux-source" target="1.8" />
+      <module name="mvc-source" target="1.8" />
+      <module name="reactor" target="1.8" />
+      <module name="spring-test" target="1.8" />
+      <module name="spring-utils" target="1.8" />
+      <module name="spring-websocket" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

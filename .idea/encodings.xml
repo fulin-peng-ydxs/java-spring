@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/spring-data/data-mongodb/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-data/data-mongodb/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-swagger/springfox2/src/main/java/swagger/Animal.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/spring-web/spring-webmvc/src/main/java/web/mvc/config/CorsConfig.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/spring-web/spring-webmvc/src/main/resources/spring-mvc-utils.emmx" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/spring-web/spring-webmvc/src/main/resources/spring-web-utils.emmx" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
