@@ -58,7 +58,7 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 					if ("created".equals(field.getName())) {
 						Date fieldValue = ClassUtils.getFieldValue(field, parameter, Date.class);
 						if (fieldValue==null) {
-							ClassUtils.setFieldValue(field,parameter, new Date());
+							ClassUtils.setFieldValue(field,parameter,getCurrentDate());
 						}
 					}
 					//注入部门编码
@@ -99,7 +99,7 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 					if ("updateTime".equals(field.getName())) {
 						Date fieldValue = ClassUtils.getFieldValue(field, parameter, Date.class);
 						if (fieldValue==null) {
-							ClassUtils.setFieldValue(field,parameter, new Date());
+							ClassUtils.setFieldValue(field,parameter, getCurrentDate());
 						}
 					}
 				} catch (Exception e) {
@@ -135,5 +135,12 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 	public String getUserOrgCode(){
 		return  "null";
 	}
-
+	/**
+	 * 获取当前时间
+	 * 2024/8/5 下午6:21
+	 * @author fulin-peng
+	 */
+	public Date getCurrentDate(){
+		return new Date();
+	}
 }
