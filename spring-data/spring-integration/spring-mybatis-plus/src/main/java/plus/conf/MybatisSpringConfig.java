@@ -43,31 +43,35 @@ public class MybatisSpringConfig {
     @Bean("db1SqlSessionFactory")
     public SqlSessionFactory db1SqlSessionFactory(@Qualifier("db1DataSource") DataSource dataSource) throws Exception {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
+
         bean.setDataSource(dataSource); //设置数据源
         bean.setTypeAliasesPackage("mybatis.bean"); //设置类型别名
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:/mapper/*.xml"));  //设置mapper映射文件位置
-        //全局配置
+
+        //1.全局配置
         GlobalConfig globalConfig = new GlobalConfig();
         bean.setGlobalConfig(globalConfig);
-            //数据库配置
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
         globalConfig.setDbConfig(dbConfig);
+               //1.1数据库配置
         configDb(dbConfig);
-            //自定义主键配置
+                //1.2自定义主键配置
 //        globalConfig.setIdentifierGenerator(value->{
 //            //可以将当前传入的class全类名来作为bizKey,或者提取参数来生成bizKey进行分布式Id调用生成.
 //            String bizKey = value.getClass().getName();
 //            //根据bizKey调用分布式ID生成
 //            return Long.parseLong(bizKey)+123;
 //        });
-        //设置通用枚举注册:
-//        //1.设置通用枚举扫描包:支持通配符 * 或者 ; 分割
+                //1.3设置通用枚举注册:
+//                   //1.3.1设置通用枚举扫描包:支持通配符 * 或者 ; 分割
 //        bean.setTypeEnumsPackage("plus.enum");
-//        //2.指定mybatis的默认枚举类型处理器为MybatisEnumTypeHandler
+//                  //1.3.2.指定mybatis的默认枚举类型处理器为MybatisEnumTypeHandler
 //        bean.setConfiguration(new MybatisConfiguration());
 //        bean.getConfiguration().setDefaultEnumTypeHandler(MybatisEnumTypeHandler.class);
-        //插件配置
+
+        //2.插件配置
         bean.setPlugins(configPlugins());
+
         return bean.getObject();
     }
 
@@ -77,6 +81,7 @@ public class MybatisSpringConfig {
         dbConfig.setLogicDeleteField("version");  //设置逻辑删除配置
         dbConfig.setLogicDeleteValue("1");
         dbConfig.setLogicNotDeleteValue("0");
+        dbConfig.setCapitalMode(true); //设置全局大写命名：表名&字段名
     }
 
     private MybatisPlusInterceptor configPlugins(){
