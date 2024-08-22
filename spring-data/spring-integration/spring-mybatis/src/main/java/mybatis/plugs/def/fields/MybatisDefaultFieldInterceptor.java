@@ -51,21 +51,21 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 					if ("createdBy".equals(field.getName())) {
 						String fieldValue = ClassUtils.getFieldValue(field, parameter, String.class);
 						if (StringUtils.isEmpty(fieldValue)) {
-							ClassUtils.setFieldValue(field,parameter,getUserId());
+							ClassUtils.setFieldValue(field,getUserId(),parameter);
 						}
 					}
 					// 注入创建时间
 					if ("created".equals(field.getName())) {
 						Date fieldValue = ClassUtils.getFieldValue(field, parameter, Date.class);
 						if (fieldValue==null) {
-							ClassUtils.setFieldValue(field,parameter,getCurrentDate());
+							ClassUtils.setFieldValue(field,getCurrentDate(),parameter);
 						}
 					}
 					//注入部门编码
 					if ("sysOrgCode".equals(field.getName())) {
 						String fieldValue = ClassUtils.getFieldValue(field, parameter, String.class);
 						if (StringUtils.isEmpty(fieldValue)) {
-							ClassUtils.setFieldValue(field,parameter,getUserOrgCode());
+							ClassUtils.setFieldValue(field,getUserOrgCode(),parameter);
 						}
 					}
 				} catch (Exception e) {
@@ -93,13 +93,13 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 					if ("updateBy".equals(field.getName())) {
 						String fieldValue = ClassUtils.getFieldValue(field, parameter, String.class);
 						if (StringUtils.isEmpty(fieldValue)) {
-							ClassUtils.setFieldValue(field,parameter,getUserId());
+							ClassUtils.setFieldValue(field,getUserId(),parameter);
 						}
 					}
 					if ("updateTime".equals(field.getName())) {
 						Date fieldValue = ClassUtils.getFieldValue(field, parameter, Date.class);
 						if (fieldValue==null) {
-							ClassUtils.setFieldValue(field,parameter, getCurrentDate());
+							ClassUtils.setFieldValue(field,getCurrentDate(),parameter);
 						}
 					}
 				} catch (Exception e) {
