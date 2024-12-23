@@ -42,7 +42,7 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 		if (SqlCommandType.INSERT == sqlCommandType) {  //插入语句
 			//获取参数对象所有字段
 			Class<?> clazz = parameter.getClass();
-			List<Field> fields = ClassUtils.getSupperClassFields(clazz, true, null);
+			List<Field> fields = ClassUtils.getFields(clazz, true, null);
 			for (Field field : fields) {
 				log.debug("------field.name------{}",field.getName());
 				//TODO 1.后续可改成可配置式,2.对于field的处理可用工具统一处理，减少编码冗余
@@ -86,7 +86,7 @@ public class MybatisDefaultFieldInterceptor implements Interceptor {
 				}
 			}
 			Class<?> clazz = parameter.getClass();
-			List<Field> fields = ClassUtils.getSupperClassFields(clazz, true, null);
+			List<Field> fields = ClassUtils.getFields(clazz, true, null);
 			for (Field field : fields) {
 				log.debug("------field.name------{}",field.getName());
 				try {
